@@ -27,8 +27,9 @@ def display_matrix(A):
 
 def sort_Matrix(A):
   k = 0
+  size_M = 5*5
   size = len(A)
-  temp = [0]*(size*size)
+  temp = [0]*(size_M)
   
   for i in range(0,5):
     for j in range(0,5):
@@ -67,7 +68,7 @@ def Mean_matrix(A):
 
 def Median_matrix(A):
   k = 0
-  size_M = len(A) * len(A)
+  size_M = 5*5
   A = sort_Matrix(A)
   temp = [0]*(size_M)
   for i in range(0,5):
@@ -76,19 +77,19 @@ def Median_matrix(A):
       k = k + 1
 
   if (size_M % 2 == 0):
-    median_1 = temp[size_M//2]
-    median_2 = temp[size_M//2-1]
+    median_1 = size_M//2
+    median_2 = size_M//2-1
     median = (median_1 + median_2)/2
-    return temp[median]
+    return temp[int(median)]
 
   else:
-    return temp[size_M//2]
+    return temp[int(size_M//2)]
     
 
 def Mode_matrix(A):
   k = 0
-  size = len(A)
-  temp = [0]*(size*size)
+  size_M = 5*5
+  temp = [0]*(size_M)
   
   for i in range(0,5):
     for j in range(0,5):
@@ -98,11 +99,16 @@ def Mode_matrix(A):
   most = max(list(map(temp.count, temp)))
   return list(set(filter(lambda x: temp.count(x) == most, temp)))
 
+  if len(x) == len(temp):
+    return 0
+  else:
+    return x
+
 
 def SD_matrix(A):
   k = 0
-  size = len(A) * len(A)
-  temp = [0]*(size)
+  size_M = 5*5
+  temp = [0]*(size_M)
   for i in range(0,5):
     for j in range(0,5):
       temp[k] = A[i][j]
@@ -115,12 +121,15 @@ def SD_matrix(A):
     i = (x - mean)**2
     sum = i + sum
   
-  l = sum / size 
+  l = sum / size_M 
 
   return l**(1/2)
 
 
 A = Matrix_input()
+
+print('5 x 5 Matrix: ')
+print('----------------------------')
 
 display_matrix(A)
 

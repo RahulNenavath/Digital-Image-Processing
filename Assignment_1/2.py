@@ -7,6 +7,8 @@ C = int(input('Number of Columns: '))
 
 def Matrix_input(R,C):
 
+  print('Matrix with Random Numbers Generated')
+
   matrix = []
 
   # 5 x 5 Matrix input:
@@ -15,12 +17,10 @@ def Matrix_input(R,C):
     row = []
     
     for j in range(0,C):
-      e = rnd.randrange(0,10)
+      e = rnd.randrange(0,100)
       row.append(e)
 
     matrix.append(row)
-
-  print('Matrix with Random Numbers Generated')
   
   return matrix
 
@@ -33,8 +33,8 @@ def display_matrix(A,R,C):
    
 def sort_Matrix(A,R,C):
   k = 0
-  size = len(A)
-  temp = [0]*(size*size)
+  size_M = R * C
+  temp = [0]*(size_M)
   
   for i in range(0,R):
     for j in range(0,C):
@@ -68,11 +68,12 @@ def Max_matrix(A,R,C):
 
 def Mean_matrix(A,R,C):
   s = sum_matrix(A,R,C)
-  return s / len(A)**2
+  return s / (R * C)
 
 def Median_matrix(A,R,C):
   k = 0
-  size_M = len(A) * len(A)
+  # size_M = len(A) * len(A)
+  size_M = R * C
   temp = [0]*(size_M)
   for i in range(0,R):
     for j in range(0,C):
@@ -82,18 +83,18 @@ def Median_matrix(A,R,C):
   temp.sort()
 
   if (size_M % 2 == 0):
-    median_1 = temp[size_M//2]
-    median_2 = temp[size_M//2-1]
+    median_1 = size_M//2
+    median_2 = size_M//2-1
     median = (median_1 + median_2)/2
-    return temp[median]
+    return temp[int(median)]
 
   else:
-    return temp[size_M//2]
+    return temp[int(size_M//2)]
 
 def Mode_matrix(A,R,C):
   k = 0
-  size = len(A)
-  temp = [0]*(size*size)
+  size_M = R * C
+  temp = [0]*(size_M)
   
   for i in range(0,R):
     for j in range(0,C):
@@ -104,15 +105,15 @@ def Mode_matrix(A,R,C):
   x = list(set(filter(lambda x: temp.count(x) == most, temp)))
 
   if len(x) == len(temp):
-    return most
+    return 0
   else:
     return x
 
 
 def SD_matrix(A,R,C):
   k = 0
-  size = len(A) * len(A)
-  temp = [0]*(size)
+  size_M = (R * C)
+  temp = [0]*(size_M)
   for i in range(0,R):
     for j in range(0,C):
       temp[k] = A[i][j]
@@ -125,13 +126,16 @@ def SD_matrix(A,R,C):
     i = (x - mean)**2
     sum = i + sum
   
-  l = sum / size 
+  l = sum / size_M 
 
   return l**(1/2)
 
 
 
 A = Matrix_input(R,C)
+
+print('{} x {} Matrix: '.format(R,C))
+print('----------------------------')
 
 display_matrix(A,R,C)
 
