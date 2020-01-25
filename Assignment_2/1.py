@@ -45,7 +45,7 @@ def salt_pepper_noise(img):
 		noise_img = random_noise(img, mode='s&p', amount=0.1)
 		sum_ = sum_ + noise_img
 
-	noise_img_5 = sum_ / 20
+	noise_img_5 = sum_ / 25
 	noise_img_5 = np.array(255*noise_img_5, dtype='uint8')
 	X = np.concatenate((X, noise_img_5), axis=1)
 
@@ -53,7 +53,7 @@ def salt_pepper_noise(img):
 		noise_img = random_noise(img, mode='s&p', amount=0.1)
 		sum_ = sum_ + noise_img
 
-	noise_img_6 = sum_ / 20
+	noise_img_6 = sum_ / 30
 	noise_img_6 = np.array(255*noise_img_6, dtype='uint8')
 	X = np.concatenate((X, noise_img_6), axis=1)
 
@@ -99,7 +99,7 @@ def Additive_Gaussian_noise(img):
 		noise_img = random_noise(img, mode='gaussian', mean=0, var=0.01)
 		sum_ = sum_ + noise_img
 
-	noise_img_5 = sum_ / 20
+	noise_img_5 = sum_ / 25
 	noise_img_5 = np.array(255*noise_img_5, dtype='uint8')
 	X = np.concatenate((X, noise_img_5), axis=1)
 
@@ -107,7 +107,7 @@ def Additive_Gaussian_noise(img):
 		noise_img = random_noise(img, mode='gaussian', mean=0, var=0.01)
 		sum_ = sum_ + noise_img
 
-	noise_img_6 = sum_ / 20
+	noise_img_6 = sum_ / 30
 	noise_img_6 = np.array(255*noise_img_6, dtype='uint8')
 	X = np.concatenate((X, noise_img_6), axis=1)
 
@@ -153,7 +153,7 @@ def Speckle_noise(img):
 		noise_img = random_noise(img, mode='speckle', mean=0, var=0.01)
 		sum_ = sum_ + noise_img
 
-	noise_img_5 = sum_ / 20
+	noise_img_5 = sum_ / 25
 	noise_img_5 = np.array(255*noise_img_5, dtype='uint8')
 	X = np.concatenate((X, noise_img_5), axis=1)
 
@@ -161,7 +161,7 @@ def Speckle_noise(img):
 		noise_img = random_noise(img, mode='speckle', mean=0, var=0.01)
 		sum_ = sum_ + noise_img
 
-	noise_img_6 = sum_ / 20
+	noise_img_6 = sum_ / 30
 	noise_img_6 = np.array(255*noise_img_6, dtype='uint8')
 	X = np.concatenate((X, noise_img_6), axis=1)
 
